@@ -67,7 +67,7 @@ h2 {
 }
 
 .date {
-    font-size: 3.8vw; /* Немного уменьшил для изящества */
+    font-size: 5.8vw; /* Немного уменьшил для изящества */
     font-weight: 350;
     letter-spacing: 3px; /* Увеличил межбуквенное расстояние */
     border-top: 1px solid rgba(0, 0, 0, 0.2);
