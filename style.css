@@ -939,3 +939,27 @@ input[type="checkbox"] {
     margin-top: -5vh;
     overflow: hidden; /* Чтобы ничего не вылезало за пределы */
 }
+
+
+/* ===== НОВАЯ СЕКЦИЯ С ФОТО LOC ===== */
+.location-section {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    background-color: #e1edf8; /* Тот же фон на всякий случай */
+    line-height: 0; /* Убираем возможные отступы у inline-элементов */
+    margin-top: -150px;
+    margin-bottom: 100px;
+}
+
+.location-full-image {
+    width: 80%;
+    height: 80%;
+    object-fit: cover; /* Фото покрывает всю область без рамок */
+    display: block; /* Убирает лишние отступы */
+}
+
+
