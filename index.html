@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Максим & Алена</title>
+    <link rel="stylesheet" href="style.css">
+
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<!-- В hero секцию, после content -->
+    <section class="hero">
+        <div class="content">
+            <h1>Максим</h1>
+            <p class="ampersand">&</p>
+            <h2>Алена</h2>
+            <p class="date">01 / 08 / 2026</p>
+        </div>
+        
+        <!-- Добавить это -->
+        <div class="music-player">
+            <div class="music-circle">
+                <button id="playBtn" class="play-triangle" style="display: flex;">▶</button>
+                <button id="pauseBtn" class="pause-button" style="display: none;">
+					<span class="pause-bar"></span>
+					<span class="pause-bar"></span>
+				</button>
+                <svg class="circle-text" viewBox="0 0 100 100">
+                    <defs>
+                        <path id="circle" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/>
+                    </defs>
+                    <text font-size="12">
+                        <textPath href="#circle" fill="#333" font-family="Georgia" letter-spacing="1">
+                            • Включите музыку • Включите музыку • Включите
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+            <audio id="bgMusic" src="1.mp3" loop preload="auto"></audio>
+        </div>
+    </section>
+
+    <section class="invitation">
+        <div class="invitation-content">
+            <p class="invitation-date">01 августа 2026</p>
+        </div>
+    </section>
+
+    <!-- Третья секция (адрес на фоне 3.png) -->
+    <section class="address">
+        <div class="address-content">
+            <p class="venue">Посейдон, Загорьевская ул., 13, Москва</p>
+			<a href="https://yandex.ru/maps/-/CPa5JKnx" target="_blank" class="route-button">
+            Построить маршрут
+        </a>
+        </div>
+    </section>
+
+    <!-- Четвёртая секция (фото 4.png) -->
+    <section class="photo-four"></section>
+
+    <!-- Пятая секция (фото 5) -->
+<!-- Пятая секция (фото 5) -->
+    <section class="photo-five">
+        <img src="dress.png" alt="dress" class="overlay-dress">
+        
+        <!-- Добавляем новый текст -->
+        <div class="dress-message">
+            Будем благодарны, <br>если при выборе нарядов
+            на наше торжество <br> вы придержитесь данной палитры:
+        </div>
+    </section>
+
+    <!-- Шестая секция (фото 6) -->
+    <section class="photo-six">
+        <div class="gift-note">
+            Мы начинаем новую главу жизни<br>
+            и будем рады любой поддержке<br>
+            в создании нашего семейного гнёздышка.<br>
+            <span>Денежный подарок станет для нас<br>самым практичным и желанным</span>
+        </div>
+    </section>
+
+    <!-- НОВАЯ СЕКЦИЯ С КОНТАКТАМИ -->
+    <section class="contacts-section">
+        <div class="contacts-container">
+            <p class="contacts-title">По всем вопросам обращаться к:</p>
+            <div class="contacts-wrapper">
+                <div class="contact-item">
+                    <span class="contact-name">Галина Ивановна</span>
+                    <a href="tel:+79262648972" class="contact-phone">+7 926 264-89-72</a>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-name">Раиса Ивановна</span>
+                    <a href="tel:+79777289846" class="contact-phone">+7 977 728-98-46</a>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Секция анкеты гостя -->
+    <!-- Секция анкеты гостя -->
+    <section class="guest-form">
+        <div class="form-container">
+            <h3>Анкета гостя</h3>
+            <p class="response-deadline">Просим дать ответ до 1 июля</p>
+            
+            <div class="form-group">
+                <label>ФИО</label>
+                <input type="text" placeholder="Иванов Иван Иванович" class="line-input">
+            </div>
+            
+            <div class="form-group">
+                <label>Подтверждение присутствия</label>
+                <div class="vertical-group">
+                    <label class="vertical-option">
+                        <input type="radio" name="attendance" value="yes"> Буду
+                    </label>
+                    <label class="vertical-option">
+                        <input type="radio" name="attendance" value="no"> Не буду
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Буду один / с парой</label>
+                <div class="vertical-group">
+                    <label class="vertical-option">
+                        <input type="radio" name="companion" value="alone"> Один / Одна
+                    </label>
+                    <label class="vertical-option">
+                        <input type="radio" name="companion" value="couple"> С парой
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>Предпочтения по алкоголю</label>
+                <div class="vertical-group">
+                    <label class="vertical-option">
+                        <input type="checkbox" value="vodka"> Водка
+                    </label>
+                    <label class="vertical-option">
+                        <input type="checkbox" value="cognac"> Коньяк
+                    </label>
+                    <label class="vertical-option">
+                        <input type="checkbox" value="red_wine"> Вино красное
+                    </label>
+                    <label class="vertical-option">
+                        <input type="checkbox" value="white_wine"> Вино белое
+                    </label>
+                </div>
+            </div>
+            
+            <button class="submit-btn">Отправить</button>
+        </div>
+    </section>
+
+
+    <!-- Футер с таймером -->
+    <!-- Футер с таймером -->
+    <footer class="wedding-footer">
+        <div class="timer-container">
+            <div class="timer" id="timer">
+                <div class="timer-item">
+                    <span class="timer-number" id="days">00</span>
+                    <span class="timer-label">дней</span>
+                </div>
+                <div class="timer-item">
+                    <span class="timer-number" id="hours">00</span>
+                    <span class="timer-label">часов</span>
+                </div>
+                <div class="timer-item">
+                    <span class="timer-number" id="minutes">00</span>
+                    <span class="timer-label">минут</span>
+                </div>
+                <div class="timer-item">
+                    <span class="timer-number" id="seconds">00</span>
+                    <span class="timer-label">секунд</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
