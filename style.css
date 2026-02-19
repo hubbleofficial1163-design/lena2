@@ -996,3 +996,147 @@ input[type="submit"],
 :focus-visible {
     outline: 1px solid #a5b8ce !important;
 }
+
+/* ===== СЕКЦИЯ КАЛЕНДАРЯ ===== */
+.calendar-section {
+    width: 100vw;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 80px 20px;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+}
+
+.calendar-container {
+    max-width: 320px; /* было 400px, стало 320px */
+    width: 100%;
+    text-align: center;
+}
+
+.calendar-month {
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: #333;
+    font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+}
+
+/* Полоса с днями недели (общий фон) */
+.weekdays-bar {
+    background-color: #e1edf9;
+    display: flex;
+    justify-content: space-around;
+    padding: 8px 0;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #4a5b6e;
+    letter-spacing: 0.5px;
+}
+
+.weekdays-bar span {
+    flex: 1;
+    text-align: center;
+    gap: 4px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.day {
+    font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
+    font-size: 18px;
+    padding: 6px 0;
+    color: #333;
+    font-weight: 400;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.day.empty {
+    background-color: transparent;
+}
+
+/* Обводка сердечком для даты свадьбы */
+.wedding-day {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heart-outline {
+    position: relative;
+    display: inline-block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    color: #333;
+    font-size: 18px;
+    z-index: 1;
+}
+
+.heart-outline::before {
+    content: "❤";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 38px;
+    color: #e1edf9;
+    z-index: -1;
+    opacity: 1;
+    line-height: 1;
+}
+
+/* Для мобильных */
+@media (max-width: 500px) {
+
+    .calendar-section {
+        padding: 15px 20px 250px 20px; /* увеличил нижний отступ на мобильных */
+    }
+
+    .calendar-container {
+        max-width: 280px; /* было 350px, стало 280px */
+    }
+
+    .calendar-month {
+        font-size: 26px;
+        margin-bottom: 12px;
+    }
+    
+    .weekdays-bar {
+        font-size: 14px;
+        padding: 6px 0;
+    }
+    
+    .day {
+        font-size: 16px;
+        padding: 5px 0;
+    }
+    
+    .heart-outline {
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        font-size: 16px;
+    }
+    
+    .heart-outline::before {
+        font-size: 32px;
+    }
+}
