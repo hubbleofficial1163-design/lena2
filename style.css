@@ -1004,24 +1004,24 @@ input[type="submit"],
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px 80px 20px;
+    padding: 40px 20px 60px 20px;
     margin: 0;
     box-sizing: border-box;
     font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
 }
 
 .calendar-container {
-    max-width: 320px; /* было 400px, стало 320px */
+    max-width: 500px;
     width: 100%;
     text-align: center;
 }
 
 .calendar-month {
-    font-size: 32px;
+    font-size: 36px;
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     color: #333;
     font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
 }
@@ -1031,11 +1031,11 @@ input[type="submit"],
     background-color: #e1edf9;
     display: flex;
     justify-content: space-around;
-    padding: 8px 0;
-    margin-bottom: 10px;
+    padding: 12px 0;
+    margin-bottom: 15px;
     border-radius: 4px;
     font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     text-transform: uppercase;
     color: #4a5b6e;
@@ -1045,7 +1045,6 @@ input[type="submit"],
 .weekdays-bar span {
     flex: 1;
     text-align: center;
-    gap: 4px;
 }
 
 .calendar-grid {
@@ -1056,8 +1055,8 @@ input[type="submit"],
 
 .day {
     font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
-    font-size: 18px;
-    padding: 6px 0;
+    font-size: 20px;
+    padding: 10px 0;
     color: #333;
     font-weight: 400;
     background-color: transparent;
@@ -1081,62 +1080,58 @@ input[type="submit"],
 .heart-outline {
     position: relative;
     display: inline-block;
-    width: 34px;
-    height: 34px;
-    line-height: 34px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
     text-align: center;
     color: #333;
-    font-size: 18px;
+    font-size: 20px;
     z-index: 1;
 }
 
 .heart-outline::before {
-    content: "❤";
+    content: "";
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 38px;
-    color: #e1edf9;
+    width: 44px;
+    height: 44px;
+    background-color: #e1edf9;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+    mask-size: contain;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
+    -webkit-mask-size: contain;
     z-index: -1;
-    opacity: 1;
-    line-height: 1;
 }
-
 /* Для мобильных */
 @media (max-width: 500px) {
 
-    .calendar-section {
-        padding: 15px 20px 250px 20px; /* увеличил нижний отступ на мобильных */
-    }
-
-    .calendar-container {
-        max-width: 280px; /* было 350px, стало 280px */
+        .calendar-section {
+        padding: 15px 20px 260px 20px; /* было 70px, стало 100px */
     }
 
     .calendar-month {
-        font-size: 26px;
-        margin-bottom: 12px;
+        font-size: 28px;
     }
     
     .weekdays-bar {
         font-size: 14px;
-        padding: 6px 0;
+        padding: 10px 0;
     }
     
     .day {
         font-size: 16px;
-        padding: 5px 0;
+        padding: 8px 0;
     }
     
     .heart-outline {
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        font-size: 16px;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
     }
     
     .heart-outline::before {
-        font-size: 32px;
+        font-size: 36px;
     }
 }
