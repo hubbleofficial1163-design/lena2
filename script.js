@@ -55,3 +55,117 @@ document.addEventListener('DOMContentLoaded', function() {
         pauseBtn.style.display = 'none';
     });
 });
+
+
+// Отправка формы в Google Таблицу
+document.addEventListener('DOMContentLoaded', function() {
+    const submitBtn = document.querySelector('.submit-btn');
+    if (submitBtn) {
+        submitBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Собираем данные
+            const formData = {
+                name: document.querySelector('input[placeholder*="Иванов"]')?.value || '',
+                attendance: document.querySelector('input[name="attendance"]:checked')?.value || '',
+                companion: document.querySelector('input[name="companion"]:checked')?.value || '',
+                alcohol: Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                    .map(cb => {
+                        const value = cb.value;
+                        // Переводим в читаемый вид
+                        const labels = {
+                            'vodka': 'Водка',
+                            'cognac': 'Коньяк',
+                            'red_wine': 'Красное вино',
+                            'white_wine': 'Белое вино'
+                        };
+                        return labels[value] || value;
+                    })
+            };
+            
+            // Проверяем заполнение обязательных полей
+            if (!formData.name) {
+                showNotification('Пожалуйста, введите ФИО', 'error');
+                return;
+            }
+            
+            if (!formData.attendance) {
+                showNotification('Пожалуйста, подтвердите присутствие', 'error');
+                return;
+            }
+            
+            // Меняем текст кнопки и блокируем её
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Отправление...';
+            submitBtn.disabled = true;
+            
+            // URL вашего Google Apps Script
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbyzO8AubmWOQqVrUNNGOEsnQVp-GXXJPBanNYWoqeN0ch8D6CCWYTVsb0s2f0IkyJIC/exec';
+            
+            // Отправляем данные
+            fetch(scriptURL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData)
+            })
+            .then(() => {
+                // Даже с no-cors мы не можем получить ответ, 
+                // поэтому показываем успех и очищаем форму
+                showNotification('Спасибо! Ваш ответ отправлен.', 'success');
+                
+                // Очищаем форму
+                document.querySelectorAll('input[type="text"]').forEach(input => input.value = '');
+                document.querySelectorAll('input[type="radio"]:checked, input[type="checkbox"]:checked')
+                    .forEach(input => input.checked = false);
+                
+                // Возвращаем кнопку в исходное состояние
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                showNotification('Произошла ошибка, но мы попробуем сохранить ответ', 'error');
+                
+                // Возвращаем кнопку в исходное состояние
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            });
+        });
+    }
+});
+
+// Функция для показа уведомлений
+function showNotification(message, type) {
+    // Удаляем предыдущее уведомление, если есть
+    const existingNotification = document.querySelector('.form-notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    // Создаем новое уведомление
+    const notification = document.createElement('div');
+    notification.className = `form-notification ${type}`;
+    notification.textContent = message;
+    
+    // Добавляем в DOM
+    document.body.appendChild(notification);
+    
+    // Показываем уведомление
+    setTimeout(() => {
+        notification.style.display = 'block';
+    }, 10);
+    
+    // Автоматически скрываем через 3 секунды
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        notification.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.remove();
+            }
+        }, 300);
+    }, 3000);
+}
