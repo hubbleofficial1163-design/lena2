@@ -957,9 +957,9 @@ input[type="checkbox"] {
 
 .location-full-image {
     width: 80%;
-    height: 80%;
-    object-fit: cover; /* Фото покрывает всю область без рамок */
-    display: block; /* Убирает лишние отступы */
+    height: auto;
+    clip-path: inset(10% 0 0 0); /* обрезать сверху 10% */
+    display: block;
 }
 
 
