@@ -127,3 +127,19 @@ function showNotification(message, type) {
         setTimeout(() => notification.remove(), 300);
     }, 3000);
 }
+
+
+// Определяем, открыт ли сайт в Telegram
+function isTelegram() {
+    return navigator.userAgent.includes('Telegram') || 
+           window.location.href.includes('tgWebApp') ||
+           document.referrer.includes('t.me');
+}
+
+// Если открыто в Telegram - применяем специальные стили
+if (isTelegram()) {
+    document.body.classList.add('telegram-view');
+    
+    // Дополнительно можно добавить предупреждение
+    console.log('Сайт открыт в Telegram WebView');
+}
