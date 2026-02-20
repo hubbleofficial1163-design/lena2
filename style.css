@@ -1055,3 +1055,82 @@ input[type="submit"],
 .submit-btn:disabled {
     animation: pulse 1.5s infinite;
 }
+
+
+/* СТИЛИ ДЛЯ TELEGRAM */
+.telegram-view {
+    /* Фиксим высоту */
+    --telegram-fix: 1px;
+}
+
+.telegram-view .hero,
+.telegram-view .invitation,
+.telegram-view .address,
+.telegram-view .photo-four,
+.telegram-view .photo-five,
+.telegram-view .photo-six {
+    min-height: 100vh;  /* вместо 100dvh */
+    height: auto;
+}
+
+.telegram-view .music-player {
+    bottom: 80px;  /* фиксированные отступы */
+    right: 40px;
+}
+
+@media (max-width: 768px) {
+    .telegram-view .music-player {
+        bottom: 280px !important;
+        right: 145px !important;
+    }
+}
+
+.telegram-view .dress-message {
+    bottom: 15%;  /* проценты работают */
+}
+
+@media (max-width: 600px) {
+    .telegram-view .dress-message {
+        bottom: 40%;
+    }
+}
+
+.telegram-view .gift-note {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.telegram-view .timer {
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+.telegram-view .timer-item {
+    width: 60px;
+}
+
+.telegram-view .timer-number {
+    font-size: 28px;
+}
+
+.telegram-view .timer-label {
+    font-size: 12px;
+}
+
+/* FIX для мобильных в Telegram */
+@media (max-width: 768px) {
+    .telegram-view .hero {
+        min-height: 100vh; /* жестко */
+        background-position: top 45px center;
+    }
+    
+    .telegram-view .content {
+        padding: 25vh 20px 0 20px;
+    }
+    
+    .telegram-view .dress-message {
+        font-size: 20px;
+        bottom: 38%;
+    }
+}
