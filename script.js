@@ -1,14 +1,31 @@
 // Этап 1: Hero секция готова. Ждем следующих указаний.
 console.log("Текст уменьшен, фон белый, шрифт элегантный");
-
 console.log("Секция 2 (приглашение) добавлена");
+
+// ===== ФИКС ДЛЯ МОБИЛЬНОГО VIEWPORT =====
+function setViewportHeight() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+// Вызываем при загрузке и изменении размера/ориентации
+setViewportHeight();
+window.addEventListener('resize', setViewportHeight);
+window.addEventListener('orientationchange', setViewportHeight);
+
+// Также вызываем при скролле с задержкой
+let scrollTimeout;
+window.addEventListener('scroll', () => {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(setViewportHeight, 150);
+});
 
 // Таймер обратного отсчета до свадьбы (15 ноября 2026)
 function updateTimer() {
     const weddingDate = new Date('November 15, 2026 00:00:00').getTime();
     const now = new Date().getTime();
     const distance = weddingDate - now;
-
+    
     if (distance < 0) {
         document.getElementById('days').textContent = '00';
         document.getElementById('hours').textContent = '00';
@@ -31,11 +48,7 @@ function updateTimer() {
 // Обновляем таймер каждую секунду
 updateTimer();
 setInterval(updateTimer, 1000);
-
 console.log("Футер с таймером добавлен, фон 2.jpeg");
-
-
-
 
 // Музыкальный плеер
 document.addEventListener('DOMContentLoaded', function() {
@@ -43,19 +56,20 @@ document.addEventListener('DOMContentLoaded', function() {
     const pauseBtn = document.getElementById('pauseBtn');
     const bgMusic = document.getElementById('bgMusic');
     
-    playBtn.addEventListener('click', function() {
-        bgMusic.play();
-        playBtn.style.display = 'none';
-        pauseBtn.style.display = 'flex';
-    });
-    
-    pauseBtn.addEventListener('click', function() {
-        bgMusic.pause();
-        playBtn.style.display = 'flex';
-        pauseBtn.style.display = 'none';
-    });
-});
+    if (playBtn && pauseBtn && bgMusic) {
+        playBtn.addEventListener('click', function() {
+            bgMusic.play();
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'flex';
+        });
 
+        pauseBtn.addEventListener('click', function() {
+            bgMusic.pause();
+            playBtn.style.display = 'flex';
+            pauseBtn.style.display = 'none';
+        });
+    }
+});
 
 // Отправка формы в Google Таблицу
 document.addEventListener('DOMContentLoaded', function() {
@@ -66,13 +80,12 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Собираем данные
             const formData = {
-                name: document.querySelector('input[placeholder*="Иванов"]')?.value || '',
-                attendance: document.querySelector('input[name="attendance"]:checked')?.value || '',
-                companion: document.querySelector('input[name="companion"]:checked')?.value || '',
-                alcohol: Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                name: document.querySelector('input[placeholder*= "Иванов "]')?.value || '',
+                attendance: document.querySelector('input[name= "attendance "]:checked')?.value || '',
+                companion: document.querySelector('input[name= "companion "]:checked')?.value || '',
+                alcohol: Array.from(document.querySelectorAll('input[type= "checkbox "]:checked'))
                     .map(cb => {
                         const value = cb.value;
-                        // Переводим в читаемый вид
                         const labels = {
                             'vodka': 'Водка',
                             'cognac': 'Коньяк',
@@ -112,8 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 body: JSON.stringify(formData)
             })
             .then(() => {
-                // Даже с no-cors мы не можем получить ответ, 
-                // поэтому показываем успех и очищаем форму
                 showNotification('Спасибо! Ваш ответ отправлен.', 'success');
                 
                 // Очищаем форму
@@ -144,20 +155,20 @@ function showNotification(message, type) {
     if (existingNotification) {
         existingNotification.remove();
     }
-    
+
     // Создаем новое уведомление
     const notification = document.createElement('div');
     notification.className = `form-notification ${type}`;
     notification.textContent = message;
-    
+
     // Добавляем в DOM
     document.body.appendChild(notification);
-    
+
     // Показываем уведомление
     setTimeout(() => {
         notification.style.display = 'block';
     }, 10);
-    
+
     // Автоматически скрываем через 3 секунды
     setTimeout(() => {
         notification.style.opacity = '0';
