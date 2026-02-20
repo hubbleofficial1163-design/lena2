@@ -81,9 +81,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Собираем данные
             const formData = {
                 name: document.querySelector('input[placeholder*= "Иванов "]')?.value || '',
-                attendance: document.querySelector('input[name= "attendance "]:checked')?.value || '',
-                companion: document.querySelector('input[name= "companion "]:checked')?.value || '',
-                alcohol: Array.from(document.querySelectorAll('input[type= "checkbox "]:checked'))
+                attendance: document.querySelector('input[name="attendance"]:checked')?.value || '',
+                companion: document.querySelector('input[name="companion"]:checked')?.value || '',
+                alcohol: Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
                     .map(cb => {
                         const value = cb.value;
                         const labels = {
