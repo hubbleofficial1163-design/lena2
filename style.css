@@ -11,12 +11,11 @@ body {
     width: 100%;
 }
 
-/* ===== HERO СЕКЦИЯ ===== */
+/* ===== УБИРАЕМ ВСЕ ЗАВИСИМОСТИ ОТ vh ===== */
 .hero {
     position: relative;
     width: 100vw;
-    height: 100dvh;
-    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh; /* Вместо height - чтобы контент не обрезался */
     background: url('11.png') no-repeat top 45px center;
     background-size: 108% auto;
     background-color: #ffffff;
@@ -28,8 +27,7 @@ body {
 }
 
 .content {
-    padding: 30dvh 20px 0 20px;
-    padding: calc(var(--vh, 1vh) * 30) 20px 0 20px;
+    padding: 30vh 20px 0 20px; /* Проценты от высоты окна, но окно не меняется */
     width: 100%;
     background-color: transparent;
 }
@@ -89,8 +87,7 @@ h2 {
 .invitation {
     position: relative;
     width: 100vw;
-    height: 100dvh;
-    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh; /* Вместо height */
     background: url('3j.png') no-repeat center center;
     background-size: 100% auto;
     display: flex;
@@ -98,8 +95,7 @@ h2 {
     justify-content: center;
     text-align: center;
     color: #000000;
-    margin-top: -15dvh;
-    margin-top: calc(var(--vh, 1vh) * -15);
+    margin-top: -15vh; /* Отрицательный margin для наложения */
     z-index: 2;
 }
 
@@ -141,8 +137,7 @@ h2 {
 /* ===== ТРЕТЬЯ СЕКЦИЯ (АДРЕС) ===== */
 .address {
     width: 100vw;
-    height: 100dvh;
-    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
     background: url('3.png') no-repeat center center;
     background-size: 100% auto;
     display: flex;
@@ -152,8 +147,7 @@ h2 {
     color: #000000;
     margin: 0;
     padding: 0;
-    margin-top: -20dvh;
-    margin-top: calc(var(--vh, 1vh) * -20);
+    margin-top: -20vh;
     background-color: #e1edf8;
 }
 
@@ -182,30 +176,26 @@ h2 {
 /* ===== ЧЕТВЁРТАЯ СЕКЦИЯ (ФОТО 4) ===== */
 .photo-four {
     width: 100vw;
-    height: 100dvh;
-    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
     background: url('4.JPEG') no-repeat center center;
     background-size: contain;
     background-color: #e1edf8;
     background-position: center center;
     margin: 0;
     padding: 0;
-    margin-top: -15dvh;
-    margin-top: calc(var(--vh, 1vh) * -15);
+    margin-top: -15vh;
 }
 
 /* ===== ПЯТАЯ СЕКЦИЯ (ФОТО 5) ===== */
 .photo-five {
     width: 100vw;
-    height: 100dvh;
-    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
     background: url('5.png') no-repeat center center;
     background-size: 100% auto;
     background-color: #f6f6f4;
     margin: 0;
     padding: 0;
-    margin-top: -5dvh;
-    margin-top: calc(var(--vh, 1vh) * -5);
+    margin-top: -5vh;
     position: relative;
     overflow: hidden;
 }
@@ -213,31 +203,27 @@ h2 {
 /* ===== ШЕСТАЯ СЕКЦИЯ (ФОТО 6) ===== */
 .photo-six {
     width: 100vw;
-    height: 100dvh;
-    height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
     background: url('6.png') no-repeat center center;
     background-size: 100% auto;
     background-color: #E1EDF8;
     margin: 0;
     padding: 0;
-    margin-top: -1dvh;
-    margin-top: calc(var(--vh, 1vh) * -1);
-    position: static;
+    margin-top: -1vh;
+    position: relative;
 }
 
 /* ===== СЕКЦИЯ АНКЕТЫ ГОСТЯ ===== */
 .guest-form {
     width: 100vw;
-    min-height: 100dvh;
-    min-height: calc(var(--vh, 1vh) * 100);
+    min-height: 100vh;
     background-color: #e3edf7;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 40px 20px;
     margin: 0;
-    margin-top: -8dvh;
-    margin-top: calc(var(--vh, 1vh) * -8);
+    margin-top: -8vh;
 }
 
 .form-container {
@@ -374,8 +360,7 @@ input[type="checkbox"] {
     margin: 0;
     padding: 0;
     position: relative;
-    height: 50dvh;
-    height: calc(var(--vh, 1vh) * 50);
+    min-height: 50vh;
     margin-top: 0;
     background-color: #e1edf9;
 }
@@ -385,10 +370,9 @@ input[type="checkbox"] {
     z-index: 2;
     text-align: center;
     color: #4a5b6e;
-    padding: 20px;
+    padding: 10px;
     width: 100%;
-    margin-top: 25dvh;
-    margin-top: calc(var(--vh, 1vh) * 25);
+    margin-top: 15vh; /* Фиксированный отступ */
     font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
     background-color: #e1edf9;
     border-radius: 10px;
@@ -413,7 +397,7 @@ input[type="checkbox"] {
     justify-content: space-around;
     max-width: 600px;
     margin: 0 auto;
-    gap: 15px;
+    gap: 0px;
     flex-wrap: wrap;
 }
 
@@ -426,7 +410,7 @@ input[type="checkbox"] {
 
 .timer-number {
     font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
-    font-size: clamp(40px, 10vw, 70px);
+    font-size: clamp(28px, 8vw, 48px);
     font-weight: 500;
     line-height: 1.2;
     color: #2c3a4a;
@@ -445,74 +429,12 @@ input[type="checkbox"] {
     text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.5);
 }
 
-@media (max-width: 400px) {
-    .timer-container {
-        max-width: 320px;
-        margin-top: 10dvh;
-        margin-top: calc(var(--vh, 1vh) * 10);
-    }
-    .timer-number {
-        font-size: 28px;
-    }
-    .timer-label {
-        font-size: 11px;
-    }
-    .timer-title {
-        font-size: 18px;
-    }
-}
-
-@media (max-width: 600px) {
-    .wedding-footer {
-        height: 45dvh;
-        height: calc(var(--vh, 1vh) * 45);
-        background-size: cover;
-    }
-    .timer-container {
-        max-width: 320px;
-        margin-top: 14dvh;
-        margin-top: calc(var(--vh, 1vh) * 14);
-        padding: 15px;
-    }
-    .timer-title {
-        font-size: 22px;
-        margin-bottom: 20px;
-        letter-spacing: 2px;
-    }
-    .timer {
-        gap: 8px;
-    }
-    .timer-item {
-        min-width: 60px;
-    }
-    .timer-number {
-        font-size: clamp(30px, 8vw, 50px);
-    }
-    .timer-label {
-        font-size: clamp(12px, 3vw, 16px);
-        letter-spacing: 1px;
-    }
-}
-
-@media (max-width: 320px) {
-    .timer {
-        gap: 5px;
-    }
-    .timer-item {
-        min-width: 45px;
-    }
-    .timer-number {
-        font-size: 24px;
-    }
-    .timer-label {
-        font-size: 9px;
-        letter-spacing: 0.5px;
-    }
-}
-
+/* ===== ЭТОТ БЛОК НА СВОЕМ МЕСТЕ ===== */
 .gift-note {
-    position: relative;
-    top: 53%;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
     transform: translateY(-50%);
     width: 90%;
     max-width: 650px;
@@ -526,8 +448,6 @@ input[type="checkbox"] {
     padding: 40px 20px;
     font-weight: 400;
     text-shadow: 0px 0px 10px rgba(255,255,255,0.8);
-    left: 0;
-    right: 0;
 }
 
 .gift-note span {
@@ -640,6 +560,7 @@ input[type="checkbox"] {
     }
 }
 
+
 .pause-button {
     position: absolute;
     width: 60px;
@@ -691,6 +612,12 @@ input[type="checkbox"] {
     .pause-bar {
         width: 1.5px;
         height: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    .timer-number {
+        font-size: 22px; /* ← МЕНЬШЕ */
     }
 }
 
@@ -877,7 +804,6 @@ input[type="checkbox"] {
     }
 }
 
-/* ИСПРАВЛЕНО: было 41%, стало 10% */
 @media (max-width: 400px) {
     .dress-message {
         bottom: 42%;
@@ -1034,9 +960,9 @@ input[type="submit"],
     width: 44px;
     height: 44px;
     background-color: #e1edf9;
-    mask: url('data:image/svg+xml;utf8,') no-repeat center;
+    mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
     mask-size: contain;
-    -webkit-mask: url('data:image/svg+xml;utf8,') no-repeat center;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="black"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>') no-repeat center;
     -webkit-mask-size: contain;
     z-index: -1;
 }
