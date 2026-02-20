@@ -1126,3 +1126,22 @@ input[type="submit"],
         bottom: 38%;
     }
 }
+
+
+/* Для маленьких телефонов */
+@media (max-width: 400px) {
+    h1 { font-size: 42px; }
+    .ampersand { font-size: 32px; }
+    h2 { font-size: 38px; }
+    .date { font-size: 22px; }
+    .content { padding-top: 200px; }
+}
+
+/* Для средних */
+@media (min-width: 401px) and (max-width: 600px) {
+    h1 { font-size: 48px; }
+    .ampersand { font-size: 36px; }
+    h2 { font-size: 42px; }
+    .date { font-size: 24px; }
+    .content { padding-top: 220px; }
+}
