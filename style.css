@@ -1101,14 +1101,6 @@ input[type="submit"],
     transform: translateY(-50%);
 }
 
-.telegram-view .timer {
-    flex-wrap: nowrap;
-    gap: 5px;
-}
-
-.telegram-view .timer-item {
-    width: 60px;
-}
 
 .telegram-view .timer-number {
     font-size: 28px;
