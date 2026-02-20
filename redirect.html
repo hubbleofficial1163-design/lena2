@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Открыть приглашение</title>
+    <style>
+        body {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            background: #e1edf8;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        .container {
+            max-width: 500px;
+            padding: 40px 20px;
+        }
+        h1 {
+            font-size: 36px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 22px;
+            color: #4a5b6e;
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: white;
+            border: 1px solid #a5b8ce;
+            border-radius: 50px;
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            margin: 10px;
+            transition: all 0.3s;
+        }
+        .button:hover {
+            background-color: #a5b8ce;
+            color: white;
+        }
+        .note {
+            font-size: 18px;
+            color: #666;
+            margin-top: 40px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Приглашение на свадьбу</h1>
+        <p>Максим & Алёна</p>
+        <p>Для лучшего отображения откройте в браузере:</p>
+        
+        <a href="#" id="openBrowser" class="button">Открыть</a>
+        
+
+
+    <script>
+        // ТВОЙ РЕАЛЬНЫЙ САЙТ
+        const SITE_URL = 'http://www.maximalena-family2026.ru';  // ← ЗДЕСЬ ВСТАВЬ СВОЮ ССЫЛКУ
+        
+        // Кнопка открытия
+        document.getElementById('openBrowser').href = SITE_URL;
+        document.getElementById('openBrowser').onclick = function(e) {
+            e.preventDefault();
+            window.open(SITE_URL, '_blank');  // Открывается в новом окне (в браузере)
+        };
+        
+        // Ссылка для копирования
+        document.getElementById('copyLink').textContent = SITE_URL;
+        
+        // Функция копирования
+        function copyToClipboard() {
+            navigator.clipboard.writeText(SITE_URL).then(() => {
+                alert('Ссылка скопирована!');
+            });
+        }
+        
+        // Автоматическая попытка открыть (но не блокируем)
+        setTimeout(() => {
+            window.open(SITE_URL, '_blank');
+        }, 500);
+    </script>
+</body>
+</html>
