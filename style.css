@@ -423,7 +423,7 @@ input[type="checkbox"] {
 /* ===== ЭТОТ БЛОК НА СВОЕМ МЕСТЕ ===== */
 .gift-note {
     position: absolute;
-    top: 50%;
+    top: 54%;
     left: 0;
     right: 0;
     transform: translateY(-50%);
@@ -432,7 +432,7 @@ input[type="checkbox"] {
     margin: 0 auto;
     text-align: center;
     font-family: "Cormorant Garamond", "Georgia", "Times New Roman", serif;
-    font-size: clamp(24px, 6vw, 40px);
+    font-size: clamp(24px, 6vw, 50px);
     line-height: 1.6;
     color: #626161;
     z-index: 3;
