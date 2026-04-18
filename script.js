@@ -1,6 +1,6 @@
 // Таймер обратного отсчета до свадьбы
 function updateTimer() {
-    const weddingDate = new Date('November 15, 2026 00:00:00').getTime();
+    const weddingDate = new Date(2026, 7, 1, 16, 30, 0).getTime();
     const now = new Date().getTime();
     const distance = weddingDate - now;
     
